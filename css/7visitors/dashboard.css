@@ -1,0 +1,1042 @@
+:root {
+    --pink: #cf1c77;
+    --purple: #4d2d9e;
+    --hoverBg: #cf7ba6;
+    --hMax: 2rem;
+    --hMin: 1.5rem;
+    --hOpt: 2vw+1rem;
+    --sbWidth: 3px;
+    --sbTrack: #0003;
+    --sbFill: #d6a2bc;
+  }
+  
+  body {
+    transition: all .3s linear;
+    background: url("https://cdn.daz3d.com/file/dazcdn/media/cronos-7-visitors/web/7v-hero-bg-v3T.png") no-repeat;
+    position: relative;
+    background-size: cover;
+    background-color: #000000;
+    overflow-y: hidden;
+  }
+  
+  body * {
+    color: #fff !important;
+    font-family: "Poppins", sans-serif !important;
+  }
+  
+  body::-webkit-scrollbar, body *::-webkit-scrollbar {
+    width: var(--sbWidth);
+    height: var(--sbWidth);
+  }
+  
+  body::-webkit-scrollbar-track, body *::-webkit-scrollbar-track {
+    background: var(--sbTrack);
+  }
+  
+  body::-webkit-scrollbar-thumb, body *::-webkit-scrollbar-thumb {
+    background-color: var(--sbFill);
+    border-radius: 20px;
+  }
+  
+  .disabled {
+    opacity: .3;
+  }
+  
+  .text-shadow {
+    text-shadow: 1px 1px 3px black;
+  }
+  
+  #nftInventory {
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+  
+  #nftInventory ul {
+    white-space: nowrap;
+  }
+  
+  #nftInventory .nft-item {
+    margin: 0 0 0 10px;
+    width: 100px;
+    padding: 0;
+  }
+  
+  #nftInventory .nft-item a {
+    /*border: 3px solid var(--purple);*/
+    border-radius: .5rem;
+    overflow: hidden;
+  }
+  
+  #nftInventory .nft-item a.selected {
+    border-color: white;
+  }
+  
+  #nftInventory .nft-item:last-child {
+    margin: 0 20px 0 10px;
+  }
+  
+  #nftInventory .nft-item span {
+    bottom: 0;
+    left: 0;
+    font-size: .75rem;
+    width: 100%;
+    background: #0009;
+  }
+  
+  #dashOptions {
+    text-align: center;
+  }
+  
+  #dashOptions .option-item {
+    font-size: .75rem;
+    padding: .3rem;
+  }
+  
+  #dashOptions .option-item i {
+    border: 2px solid #fff;
+    border-radius: 50%;
+    padding: .5rem;
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+  }
+  
+  #dashOptions .option-item a {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #dashOptions .option-item i svg {
+    width: 30px;
+    height: 30px;
+  }
+  
+  #dashOptions .option-item i svg path {
+    fill: #fff;
+  }
+  
+  #dashOptions .option-item:hover a {
+    color: #fff;
+  }
+  
+  #dashOptions .option-item:hover i {
+    background: #fff;
+  }
+  
+  #dashOptions .option-item:hover i svg path {
+    fill: var(--pink);
+  }
+  
+  #heroCircle {
+    padding: 1.15rem;
+    position: relative;
+  }
+  
+  .selected-nft {
+    border: 3px solid var(--pink);
+    border-radius: 50%;
+    outline: 3px solid #fff;
+  }
+  
+  #heroCircle video {
+    border: 3px solid var(--pink);
+    border-radius: 50%;
+    outline: 3px solid #fff;
+  }
+  
+  #heroCircle svg {
+    padding: .5rem;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    -webkit-animation: spinnyTime 20s infinite linear;
+    animation: spinnyTime 20s infinite linear;
+    transition: animation 5s ease-in-out;
+  }
+  
+  #heroCircle.loading svg {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+  }
+  
+  #heroCircle .nft-name {
+    bottom: 2rem;
+    width: 100%;
+    text-align: center;
+    left: 0;
+  }
+  
+  #heroCircle .selected-mod {
+    left: 0;
+    width: 35%;
+    bottom: 1.5rem;
+  }
+
+  #heroCircle #hero-thumb {
+    border-radius: 51%;
+    border: 8px solid #ffffff;
+    position: absolute;
+    bottom: 50%;
+    left: 62%;
+    width: 25%;
+    height: 25%;
+    margin: -50%;
+  }
+
+  .deg-225 {
+    transform:rotate(210deg) translate(50%) rotate(-210deg);
+  }
+  
+  #main {
+    border-left: 1px solid #ffffff;
+  }
+  
+  #image_selected {
+    position: absolute;
+    top: 60%;
+    left: -20px;
+    height: 40%;
+    width: 40%;
+  }
+  
+  #video_selected {
+    position: absolute;
+    top: 60%;
+    left: -20px;
+    height: 40%;
+    width: 40%;
+  }
+  
+  .action-content .description {
+    font-size: .85rem;
+  }
+  
+  .action-content .submit, button.submit {
+    background: #fff;
+    color: var(--bs-white) !important;
+    border: 2px solid var(--pink);
+    padding: .25rem 1rem;
+    border-radius: 1rem;
+    display: block;
+  }
+  
+  .action-content .submit:hover, button.submit:hover {
+    color: #ffffff !important;
+    background: var(--pink) !important;
+    border-color: white;
+  }
+  
+  button.submit span {
+    color: #ffffff !important;
+  }
+  
+  button.submit:disabled {
+    opacity: .3;
+  }
+  
+  .module-panel {
+    right: 0;
+    display: block;
+    transition: all .3s ease-in-out;
+    width: 100%;
+  }
+  
+  .module-panel .frosted-glass {
+    background-color: rgba(255, 255, 255, 0.25);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+  }
+  
+  .module-panel .close-panel {
+    top: 0;
+    left: 0;
+  }
+  
+  .module-panel .purple-box {
+    /*background: #603db959;*/
+    font-size: .75rem;
+  }
+  
+  .module-panel.off-canvas {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  
+  #dashOptions li {
+    transition: all .3s ease-in-out;
+  }
+  
+  #dashOptions li.off-canvas {
+    -webkit-transform: translateY(-1000%);
+    transform: translateY(-1000%);
+  }
+  
+  .panel-dl-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  .panel-dl-icons .dl-icon-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .panel-dl-icons .dl-icon-container p {
+    margin-top: 5px;
+    margin-bottom: 0;
+  }
+  
+  .panel-dl-icons .dl-img-container {
+    width: 46px;
+    height: 46px;
+    background-color: rgb(94, 94, 94);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .panel-dl-icons .dl-img-container img {
+    filter: grayscale(75%);
+    -webkit-filter: grayscale(75%);
+    -moz-filter: grayscale(75%);
+  }
+  
+  .panel-dl-icons .dl-live {
+    background-color: #FFF;
+  }
+  
+  .panel-dl-icons .dl-live img {
+    filter: none;
+  }
+  
+  #panel-howto-video {
+    width: 344px;
+    height: 193px;
+  }
+  
+  #panel-howto-video {
+    width: 500px;
+    height: 281px;
+  }
+  
+  #panel-images {
+    padding-top: 15px;
+  }
+  
+  #panel-images .img-container {
+    padding-top: 10px;
+  }
+  
+  #panel-images .img-container:nth-child(odd) {
+    padding-left: 5%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  
+  #panel-images .img-container:nth-child(even) {
+    padding-right: 5%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  
+  #panel-images .img-container.selected, #panel-images .img-container:hover, #panel-images .img-container:active {
+    background-color: #8c4d6d;
+  }
+  
+  #panel-images img {
+    width: 200px;
+    border-radius: 10px;
+  }
+  
+  #panel-images .img-container:hover img, #panel-images .img-container.selected img {
+    border: 4px solid #FFF;
+    border-radius: 8%;
+  }
+  
+  #dashboard_announcements{
+    overflow-y: scroll;
+    max-height: calc(90vh - 120px);
+  }
+
+  .btn-more{
+    background: none;
+    color: #ffffff;
+    border: none;
+    font-size: .8rem;
+    text-shadow: 1px 1px 3px black;
+  }
+  /* begin modal */
+  
+  #modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .5);
+    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 1031;
+  }
+  
+  #modal .modal-box {
+    min-width: 50vw;
+    max-width: 75vw;
+    display: flex;
+    padding: 45px;
+    background-color: var(--pink);
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.5);
+    border-radius: 44px;
+    user-select: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 20px;
+  }
+  
+  #modal .modal-box p {
+    margin: 0 0 25px;
+    text-align: center;
+  }
+  
+  #modal .modal-box .modal-title {
+    font-weight: 800;
+  }
+  
+  #modal .modal-box .btn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #modal .modal-box .btn-container button:not(:first-child) {
+    margin-top: 10px;
+  }
+  
+  #modal .modal-box button {
+    border: 1px solid #fff;
+    border-radius: 28px;
+    color: var(--pink) !important;
+    background: #ffffff;
+    padding: 10px 15px;
+    text-decoration: none;
+  }
+  
+  #modal .modal-box .btn-container.horizontal-buttons {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  #modal .modal-box .btn-container.horizontal-buttons button:not(:first-child) {
+    margin-top: 0;
+  }
+  
+  #modal .card {
+    background: transparent;
+    border: none;
+  }
+  
+  #modal img {
+    margin-block: 1rem;
+    width: 100%;
+    border: 2px solid white;
+  }
+  
+  #modal .update-compare .card-img-top {
+    max-width: 256px;
+    max-height: 256px;
+  }
+  
+  /* end modal */
+  
+  .purple-cir {
+    background: #4C2DA0;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
+  
+  .purple-cir.disabled {
+    opacity: .5;
+  }
+  
+  @media (min-width: 500px) {
+    #panel-howto-video {
+      width: 462px;
+      height: 260px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #nftInventory {
+      overflow-x: scroll;
+      overflow-y: hidden;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #nftInventory ul {
+      white-space: nowrap;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #nftInventory .nft-item {
+      margin: 0 0 0 10px;
+      padding: 0;
+      width: 7rem;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #nftInventory .nft-item a {
+      /*border: 3px solid var(--purple);*/
+      border-radius: .5rem;
+      overflow: hidden;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #nftInventory .nft-item a.selected {
+      border-color: white;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #nftInventory .nft-item:last-child {
+      margin: 0 20px 0 10px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #nftInventory .nft-item span {
+      bottom: 0;
+      left: 0;
+      font-size: .75rem;
+      width: 100%;
+      background: #0009;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #dashOptions {
+      text-align: center;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #dashOptions .option-item {
+      font-size: .75rem;
+      padding: .3rem;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #dashOptions .option-item i {
+      border: 2px solid #fff;
+      border-radius: 50%;
+      display: flex;
+      height: 50px;
+      width: 50px;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #dashOptions .option-item i svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #dashOptions .option-item i svg path {
+      fill: #fff;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #dashOptions .option-item:hover a {
+      color: #fff;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #dashOptions .option-item:hover i {
+      background: #fff;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #dashOptions .option-item:hover i svg path {
+      fill: var(--purple);
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #heroCircle {
+      padding: 1.15rem;
+      position: relative;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .selected-nft {
+      border: 3px solid var(--bs-white);
+      border-radius: 50%;
+      outline: 3px solid #fff;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #heroCircle video {
+      border: 3px solid var(--pink);
+      border-radius: 50%;
+      outline: 3px solid #fff;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #heroCircle svg {
+      padding: .5rem;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      -webkit-animation: spinnyTime 20s infinite linear;
+      animation: spinnyTime 20s infinite linear;
+      transition: animation 5s ease-in-out;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #heroCircle.loading svg {
+      -webkit-animation-duration: 1s;
+      animation-duration: 1s;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #heroCircle .nft-name {
+      bottom: 2rem;
+      width: 100%;
+      text-align: center;
+      left: 0;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #heroCircle .selected-mod {
+      left: 0;
+      width: 35%;
+      bottom: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .action-content .description {
+      font-size: .85rem;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .action-content .submit, .module-panel button.submit {
+      background: var(--pink);
+      color: var(--bs-white);
+      padding: .25rem 1rem;
+      border-radius: 1rem;
+      display: inline-block;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .module-panel button.submit:disabled {
+      opacity: .3;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .module-panel {
+      right: 0;
+      display: block;
+      transition: all .3s ease-in-out;
+      width: 70%;
+      z-index: 3;
+      text-shadow: 1px 1px 3px black;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .module-panel .frosted-glass {
+      background-color: rgba(255, 255, 255, 0.25);
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .module-panel .close-panel {
+      top: 0;
+      left: 0;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .module-panel .purple-box {
+      /*background: var(--hoverBg);*/
+      font-size: .75rem;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .module-panel .panel-items {
+      overflow-y: scroll;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .module-panel.off-canvas {
+      -webkit-transform: translateX(100%);
+      transform: translateX(100%);
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #dashOptions li {
+      transition: all .3s ease-in-out;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #dashOptions li.off-canvas {
+      -webkit-transform: translateY(-1000%);
+      transform: translateY(-1000%);
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #dashOptions .option-item a {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #image_selected {
+      position: absolute;
+      height: 35%;
+      width: 35%;
+      left: 0;
+      top: 60%;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #video_selected {
+      position: absolute;
+      height: 35%;
+      width: 35%;
+      left: 0;
+      top: 60%;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #panel-howto-video {
+      width: 500px;
+      height: 281px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #panel-images {
+      padding-top: 15px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #panel-images .img-container {
+      padding-top: 10px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #panel-images .img-container:nth-child(odd) {
+      padding-left: 5%;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #panel-images .img-container:nth-child(even) {
+      padding-right: 5%;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #panel-images .img-container.selected, #panel-images .img-container:hover, #panel-images .img-container:active, #upgradeInv li a:hover, #upgradeInv li a:active, #upgradeInv li.selected {
+      background-color: var(--pink);
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #panel-images img {
+      width: 200px;
+      border-radius: 10px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #panel-images video {
+      border-radius: 10px;
+    }
+  }
+  
+  /* begin modal */
+  
+  @media (min-width: 768px) {
+    #modal .modal-box {
+      min-width: 35vw;
+      max-width: 725px;
+    }
+  }
+  
+  /* end modal */
+  
+  #upgradeInv .upgrade-image, .personalize-image {
+    height: 80px;
+    width: 80px;
+    border: 3px solid var(--pink);
+  }
+  
+  #upgradeInv .selected .upgrade-image, .selected .personalize-image {
+    border-color: white;
+  }
+  
+  .personalize-item.selected {
+    background: #603db959;
+  }
+  
+  @media (min-width: 768px) {
+    .full-height {
+      height: calc(100vh - 84px);
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #nftInventory {
+      overflow-x: hidden;
+      overflow-y: scroll;
+      height: calc(100vh - 140px);
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #nftInventory ul {
+      white-space: normal;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #nftInventory .nft-item {
+      margin: auto;
+      width: 75%;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #nftInventory .nft-item:last-child {
+      margin: auto;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #dashOptions {
+      text-align: center;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #dashOptions .option-item {
+      position: absolute;
+      width: 150px;
+      line-height: 50px;
+      height: 50px;
+      z-index: 2;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #dashOptions .option-item a {
+      flex-direction: row;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #dashOptions .option-item i {
+      margin: 0 .5rem 0 0;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #dashOptions .option-item:nth-child(1) {
+      top: 50px;
+      left: 80%;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #dashOptions .option-item:nth-child(2) {
+      top: 110px;
+      left: 90%;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #dashOptions .option-item:nth-child(3) {
+      top: 180px;
+      left: 98%;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #dashOptions .option-item:nth-child(4) {
+      left: 100%;
+      top: 255px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .module-panel {
+      width: 50%;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    #dashboardV2 {
+      height: 56.25vw;
+      max-height: calc(100vh);
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .height-inherit {
+      height: inherit;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    #heroCircle, .action-content {
+      max-width: 70%;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    #dashOptions .option-item:nth-child(1) {
+      top: 50px;
+      left: 60%;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    #dashOptions .option-item:nth-child(2) {
+      top: 110px;
+      left: 68%;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    #dashOptions .option-item:nth-child(3) {
+      top: 180px;
+      left: 72%;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    #dashOptions .option-item:nth-child(4) {
+      left: 73%;
+      top: 255px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .module-panel {
+      width: 33.333%;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    #panel-howto-video {
+      width: 100%;
+      max-height: 56%;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    #panel-images .img-container {
+      cursor: pointer;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    #panel-images .img-container:nth-child(odd) {
+      padding-left: 10%;
+      padding-right: 5%;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    #panel-images .img-container:nth-child(even) {
+      padding-left: 5%;
+      padding-right: 10%;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    #panel-images img {
+      width: 100%;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .fade-grad {
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 100%;
+      top: -20px;
+      height: 20px;
+      background: linear-gradient(0deg, rgba(89, 76, 111, 1) 0%, rgba(89, 76, 111, 0) 100%);
+      border-bottom: 1px solid #493f5c;
+    }
+  }
+  
+  @keyframes spinnyTime {
+    from {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(359deg);
+      transform: rotate(359deg);
+    }
+  }
+  
+  .align-items-start {
+    align-items: flex-start!important;
+  }
+  
